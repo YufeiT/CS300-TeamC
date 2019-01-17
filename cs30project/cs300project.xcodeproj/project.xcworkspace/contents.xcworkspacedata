@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:cs30project.xcodeproj">
+      location = "self:/Users/yufei/Documents/CS 300/CS300-TeamC/cs30project/cs300project.xcodeproj">
    </FileRef>
 </Workspace>
