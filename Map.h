@@ -39,6 +39,7 @@ public:
 
 	//Draws the map to the screen
 	void display();
+	void update();
 
 private:
 	Tile** map;		//2d array of Tile objects
