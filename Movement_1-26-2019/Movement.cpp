@@ -14,28 +14,28 @@ int Movement::north(int y){
     if(checkYBounds(y++))
         return y++;
     else
-        return 0;
+        return -1;
 }
 
 int Movement::south(int y){
     if(checkYBounds(y--))
         return y--;
     else
-        return 0;
+        return -1;
 }
 
 int Movement::east(int x){
     if(checkXBounds(x++))
         return x++;
     else
-        return 0;
+        return -1;
 }
 
 int Movement::west(int x){
     if(checkXBounds(x--))
         return x--;
     else
-        return 0;
+        return -1;
 }
 
 bool Movement::checkXBounds(int location){
