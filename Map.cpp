@@ -57,7 +57,7 @@ bool Map::move_south(){
 void Map::display(){
 	for(int i=0;i<dimensions;++i){
 		for(int j=0;j<dimensions;++j){
-			if(playerLoc[0]==i && playerLoc[1]==j) //If this Tile is the player
+			if(playerLoc[0]==i && playerLoc[1]==j) //This Tile is the player
 				std::cout<<"O ";
 			else{
 				if(map[i][j].beenSeen)
@@ -71,6 +71,7 @@ void Map::display(){
 	}
 }
 
+//Updates the tiles surround the player
 void Map::update(){
 	for(int i=playerLoc[0]-1;i<=playerLoc[0]+1;++i){
 		for(int j=playerLoc[1]-1;j<=playerLoc[1]+1;++j){
