@@ -1,21 +1,22 @@
 #include "Map.h"
 
 Map::Map(){
-	dimensions = 20;
-	map = generateMap();
-	p1 = new Player();
-	p1->x = dimensions/2;
-	p1->y = dimensions/2;
+dimensions = 20;
+map = generateMap();
+p = new player();
+ploc.x = dimensions/2;
+ploc.y = dimensions/2;
 }
 
-Map::Map(int size,Player* p){
+Map::Map(int size,player* p){
 	dimensions = size;
 	map = generateMap();
-	p1 = p;
+	ploc.x = rand()%dimensions;
+	ploc.y = rand()%dimensions;
 }
 
 Map::~Map(){
-	delete p1;
+//	delete p;
 	for(int i=0;i<dimensions;++i){
 		delete map[i];
 	}
@@ -25,8 +26,8 @@ Map::~Map(){
 void Map::display(){
 	for(int i=0;i<dimensions;++i){
 		for(int j=0;j<dimensions;++j){
-			if(p1->x == i && p1->y == j) //If this Tile is the player
-				std::cout<<"O ";
+			if(ploc.x == i && ploc.y == j) //If this Tile is the player
+				std::cout << cyan << "O " << reset;
 			else{
 				if(map[i][j].beenSeen)
 					std::cout<<map[i][j].type<<' ';
@@ -39,8 +40,8 @@ void Map::display(){
 }
 
 void Map::update(){
-	for(int i=p1->x-1;i<=p1->x+1;++i){
-		for(int j=p1->y-1;j<=p1->y+1;++j){
+	for(int i=ploc.x-1;i<=ploc.x+1;++i){
+		for(int j=ploc.y-1;j<=ploc.y+1;++j){
 			if(i>=0 && j>=0 && j<dimensions && i<dimensions)
 				map[i][j].beenSeen = true;
 		}
