@@ -16,9 +16,13 @@ int main()
   Map gameMap(20,&myHero);
 
   
-  gameMap.display();
-  
-  cout << "\n Enter direction:  \n";
+  do{   
+    gameMap.display();
+    cout << red << "\n Enter direction: W,A,S,D \n" 
+  }
+  while( 
+
+
 
   
   return 0;
