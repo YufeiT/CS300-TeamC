@@ -25,7 +25,9 @@ class player
     ~player();
     // Takes obstacles/terrrain arg, checks player's items then subtracts energy
     int movement(/*add obstacle and terrain args*/);
-   //int getEnergy();
+   // int getEnergy();
+   // bool hasBinos(); ?
+   // int updateInventory(char *item) ?
     void test();
     
   private:
