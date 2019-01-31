@@ -17,7 +17,7 @@ bool Inventory::add_item(char* name,int count,Item* head){
 	//Inventory was empty
 	if(!head){
 		head = new Item;
-		head->name = new char[strlen(name)];
+		head->name = new char[strlen(name)+1];
 		head->count = count;
 		head->next = NULL;
 		return true;
@@ -34,7 +34,7 @@ bool Inventory::add_item(char* name,int count,Item* head){
 	//The new Item is added to the end of the LL
 	else{
 		head->next = new Item;
-		head->name = new char[strlen(name)];
+		head->name = new char[strlen(name)+1];
 		head->count = count;
 		head->next->next = NULL;
 	}

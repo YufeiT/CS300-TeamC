@@ -7,8 +7,8 @@ Map::Map(){
 	playerLoc[1] = 0;
 }
 
-Map::Map(int size){
-	dimensions = size;
+Map::Map(char* fileName){
+	dimensions = 20;
 	map = generateMap();
 	playerLoc[0] = 0;	//Player starts at 0,0
 	playerLoc[1] = 0;
@@ -39,7 +39,7 @@ bool Map::move_west(){
 }
 
 bool Map::move_east(){
-	if(playerLoc[1]<dimensions-2){
+	if(playerLoc[1]<dimensions-1){
 		++playerLoc[1];
 		return true;
 	}
@@ -47,7 +47,7 @@ bool Map::move_east(){
 }
 
 bool Map::move_south(){
-	if(playerLoc[0]<dimensions-2){
+	if(playerLoc[0]<dimensions-1){
 		++playerLoc[0];
 		return true;
 	}

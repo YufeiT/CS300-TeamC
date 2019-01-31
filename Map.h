@@ -6,8 +6,9 @@ January 22, 2018*/
 #include <fstream>
 
 struct Obstruction{
-	char* type;		//eg Boulder, Log, etc
-	char* tool;		//The tool to remove it
+	char* type;		//eg Boulder, Bush, etc
+	int cost;		//Energy cost to remove w/o tool
+	char* tool;		//The name of the tool to remove it
 };
 
 struct Tile{
@@ -25,7 +26,7 @@ class Map{
 public:
 	// Constructors
 	Map();
-	Map(int size);
+	Map(char* fileName);
 	~Map();
 
 	//Player movement
@@ -41,9 +42,10 @@ public:
 	void update();
 
 private:
-	Tile** map;		//2d array of Tile objects
-	int playerLoc[2];	//Location of the Player
-	int dimensions; //Max dimensions of the map
+	Tile** map;					//2d array of Tile objects
+	int playerLoc[2];			//Location of the Player
+	int dimensions; 			//Max dimensions of the map
+	Obstruction* obsLibrary;	//Library of all possible obstructions
 
 	//Generates map of size sxs
 	Tile** generateMap();

@@ -2,6 +2,7 @@
 January 22, 2018*/
 
 //Includes
+#include <fstream>
 #include <iostream>
 #include "Map.h"
 
@@ -13,10 +14,21 @@ void clear_screen();
 int main(){
 	//Initialize variables
 	Map* theMap = new Map();
+	Settings* theSettings = new Settings("settings.txt");
 	char userResp;
-	
+
 	//Print initial stuff
 	print_intro();
+
+	do{
+		std::cout<<"(P)lay or edit (s)ettings?\n>";
+		std::cin>>userResp;
+		std::cin.ignore();
+		if(userResp == 's' || userResp == 'S'){
+			theSettings->edit();
+		}
+	}while(userResp != 'p' || userResp != 'P');
+
 	print_controls();
 
 	//Main program loop
