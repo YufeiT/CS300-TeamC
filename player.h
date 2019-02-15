@@ -8,6 +8,14 @@
 #include <iostream>
 #include<stdlib.h>
 
+//Colors
+const std::string red("\033[0;31m");
+const std::string green("\033[1;32m");
+const std::string yellow("\033[1;33m");
+const std::string cyan("\033[0;36m");
+const std::string magenta("\033[0;35m");
+const std::string reset("\033[0m");
+
 struct inventory
 {
   bool boat;
@@ -16,19 +24,22 @@ struct inventory
   bool jackhammer;
   bool ebar;
   bool binos;
+  bool empty;
 };
 
 class player 
 {
   public:
     player();
+    player(int m, int e);
     ~player();
     // Takes obstacles/terrrain arg, checks player's items then subtracts energy
-    int movement(/*add obstacle and terrain args*/);
-   // int getEnergy();
+    int movement(char type);
+    int getEnergy()const;
+    int getMoney()const;
    // bool hasBinos(); ?
-   // int updateInventory(char *item) ?
-    void test();
+    int buy_item(int item);
+    void display_inv();
     
   private:
     int energy;
