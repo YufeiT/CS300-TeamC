@@ -18,8 +18,19 @@ int bought();
 
 int main()
 {
+/*
+  shop test;
+  test.display(); 
+  cout << endl;
+
+  test.set_price();
+  test.display(); 
+  cout << endl;
+*/
+
   srand(time(NULL));
   player myHero(15, 30);
+  shop myShop;
   Map gameMap(20);
 
   char userCommand = ' ';
@@ -27,7 +38,7 @@ int main()
   bool noEnergy = false;
   bool jewel = false;
   int moveCode = 0;
-  int selected = 0;;
+//  int selected = 0;;
   
 
   
@@ -45,14 +56,11 @@ int main()
     cin >> userCommand; cin.ignore(100,'\n');
     if(userCommand == 'i')
     {
-      shopdisplay(); 
-      selected = bought();
-      if(myHero.buy_item(selected) < 0)
-        cout << green <<"INSUFFICIENT FUNDS or INVALID NUMBER INPUT\n\n" << reset;
-      
-
-      cout << "item: " << selected << endl;
-
+      myShop.display(); 
+    //  selected = bought();
+    //  if(myHero.buy_item(selected) < 0)
+       if(myShop.purchase(&myHero) < 0)
+        cout << green <<"INSUFFICIENT FUNDS\n\n" << reset;
     }
     else
     {
@@ -87,7 +95,6 @@ int main()
   }while(!noEnergy && !jewel);
 
   return 0;
-
 }
 
 void clear()

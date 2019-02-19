@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include<stdlib.h>
+#include<cstring>
 
 //Colors
 const std::string red("\033[0;31m");
@@ -16,6 +17,8 @@ const std::string cyan("\033[0;36m");
 const std::string magenta("\033[0;35m");
 const std::string reset("\033[0m");
 
+enum item{BOAT,WEED,CHAINSAW,JACK,EBAR,BINOS};
+/*
 struct inventory
 {
   bool boat;
@@ -26,6 +29,7 @@ struct inventory
   bool binos;
   bool empty;
 };
+*/
 
 class player 
 {
@@ -33,16 +37,38 @@ class player
     player();
     player(int m, int e);
     ~player();
+    void set_price();
     // Takes obstacles/terrrain arg, checks player's items then subtracts energy
     int movement(char type);
     int getEnergy()const;
     int getMoney()const;
    // bool hasBinos(); ?
-    int buy_item(int item);
+    void add_item(int item, int price);
     void display_inv();
     
   private:
     int energy;
     int money;
-    inventory inv;
+    bool inventory[6];
+};
+
+class shop
+{
+  public:
+    shop();
+    ~shop();
+    void set_price();
+    void display()const;
+    int purchase(player*);
+  private:
+    /*
+     1. Boat 
+     2. Weedwacker
+     3. Chainsaw  
+     4. Jackhammer 
+     5. Energy Bar  
+     6. Binoculars
+    */
+    int price[6]; 
+    
 };
