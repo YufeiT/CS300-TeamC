@@ -18,18 +18,6 @@ const std::string magenta("\033[0;35m");
 const std::string reset("\033[0m");
 
 enum item{BOAT,WEED,CHAINSAW,JACK,EBAR,BINOS};
-/*
-struct inventory
-{
-  bool boat;
-  bool weedwacker;
-  bool chainsaw;
-  bool jackhammer;
-  bool ebar;
-  bool binos;
-  bool empty;
-};
-*/
 
 class player 
 {
@@ -42,7 +30,8 @@ class player
     int movement(char type);
     int getEnergy()const;
     int getMoney()const;
-   // bool hasBinos(); ?
+    bool hasBinos()const; 
+    bool hasBoat()const;
     void add_item(int item, int price);
     void display_inv();
     

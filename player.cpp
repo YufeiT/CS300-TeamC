@@ -92,3 +92,13 @@ int player::getMoney()const
 {
   return money;
 }
+
+bool player::hasBinos() const
+{
+  return inventory[BINOS];
+}
+
+bool player::hasBoat() const
+{
+  return inventory[BOAT];
+}

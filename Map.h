@@ -44,7 +44,7 @@ public:
 
 	//Draws the map to the screen
 	void display();
-	void update();
+	void update(const bool binos);
   int validMove(char cmd);
   int passTile();
   bool gotJewel();

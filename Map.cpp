@@ -15,6 +15,7 @@ Map::Map(int size){
 
 	jewel.x = rand()%dimensions;
 	jewel.y = rand()%dimensions;
+
 }
 
 Map::~Map(){
@@ -46,17 +47,20 @@ void Map::display(){
 	}
 }
 
-void Map::update()
+void Map::update(const bool binos)
 {
-	for(int i=ploc.y-1;i<=ploc.y+1;++i)
+  int view = 1; 
+  if(binos)
+    view = 2;
+
+	for(int i=ploc.y-view;i<=ploc.y+view;++i)
   {
-		for(int j=ploc.x-1;j<=ploc.x+1;++j)
+		for(int j=ploc.x-view;j<=ploc.x+view;++j)
     {
 			if(i>=0 && j>=0 && j<dimensions && i<dimensions)
 				map[i][j].beenSeen = true;
 		}
 	}
- // display();
 }
 
 bool Map::gotJewel()

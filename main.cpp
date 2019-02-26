@@ -14,19 +14,9 @@ void clear();
 void shopdisplay();
 int bought();
 
-//bool commandCheck(char userCommand);
 
 int main()
 {
-/*
-  shop test;
-  test.display(); 
-  cout << endl;
-
-  test.set_price();
-  test.display(); 
-  cout << endl;
-*/
 
   srand(time(NULL));
   player myHero(15, 30);
@@ -38,12 +28,11 @@ int main()
   bool noEnergy = false;
   bool jewel = false;
   int moveCode = 0;
-//  int selected = 0;;
   
-
   
   do{   
     clear();
+    gameMap.update(myHero.hasBinos());
     gameMap.display();
     myHero.display_inv(); 
     cout << yellow << "|ENERGY: " << myHero.getEnergy() << "| " << reset;
@@ -91,7 +80,6 @@ int main()
       cout << magenta << "~~~~~ YOU WIN ~~~~~" << reset << endl;
     }
 
-    gameMap.update();
   }while(!noEnergy && !jewel);
 
   return 0;
