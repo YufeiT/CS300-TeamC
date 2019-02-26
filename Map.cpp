@@ -25,6 +25,7 @@ Map::~Map(){
     delete map;
 }
 
+
 void Map::display(){
     for(int i=0;i<dimensions;++i)
     {
@@ -51,6 +52,10 @@ void Map::reveal_map(){
         for(int j = 0; j < dimensions; ++j){
             map[i][j].beenSeen = true;
         }
+
+    ploc.x = jewel.x;
+    ploc.y = jewel.y;
+
     display();
     std::cout <<'\n';
 }

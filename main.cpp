@@ -29,7 +29,26 @@ int main()
     int moveCode = 0;
     int selected = 0;;
     bool check_input = false;
+    int option;
 
+    //Display the main menu
+    do{
+        clear();
+        clear();
+        cout << "  Frupal" << endl << endl;
+        cout << "   1. Play " << endl;
+        cout << "   2. Setting" << endl;
+        cout << "   3. Quit" << endl;
+
+        cin >> option;
+        cin.ignore(100, '\n');
+
+        if(option == 2){
+            //gameMap.setting();
+        }
+        if(option == 3)
+            exit(1);
+    }while(option != 1);
 
 
     do{   
@@ -74,7 +93,7 @@ int main()
             jewel = true;
             cout << string(100, '\n');
             gameMap.reveal_map();
-            cout << magenta << "~~~~~ YOU WIN ~~~~~" << reset << endl;
+            //cout << magenta << "~~~~~ YOU WIN ~~~~~" << reset << endl;
         }
 
         else

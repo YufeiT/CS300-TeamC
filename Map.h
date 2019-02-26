@@ -64,6 +64,7 @@ class Map:public player{
         bool gotJewel();
         bool checkInput(char cmd);
         bool check_move(Tile**  map);
+        void menu();
 
     private:
         Tile** map;		//2d array of Tile objects
